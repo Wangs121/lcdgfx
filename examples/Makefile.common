@@ -81,9 +81,15 @@ INCLUDES += \
 
 CXXFLAGS += -fno-rtti
 
+ifeq ($(SDL_EMULATION),y)
+CCFLAGS += -MD -g -Os -w $(INCLUDES) -Wall -Werror \
+	-ffunction-sections -fdata-sections \
+	$(EXTRA_CCFLAGS)
+else
 CCFLAGS += -MD -g -Os -w -ffreestanding $(INCLUDES) -Wall -Werror \
 	-ffunction-sections -fdata-sections \
 	$(EXTRA_CCFLAGS)
+endif
 
 ifeq ($(shell uname -s),Darwin)
 	CCFLAGS += -Wl,-dead_strip

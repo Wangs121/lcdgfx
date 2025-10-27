@@ -32,6 +32,8 @@
 # FREQUENCY
 
 CC=gcc
+MKDIR=mkdir
+BLD=..\\bld
 
 ifeq ($(ADAFRUIT),y)
     CPPFLAGS += -I./lcd_hal/mingw/arduino

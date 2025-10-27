@@ -59,7 +59,7 @@ include Makefile.src
 ####################### Compiling library #########################
 
 $(BLD)/liblcdgfx.a: $(OBJS)
-	mkdir -p $(BLD)
+	-$(MKDIR) $(BLD)
 	$(AR) rcs $@ $(OBJS)
 
 lcdgfx: $(BLD)/liblcdgfx.a

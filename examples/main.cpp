@@ -29,7 +29,7 @@
 extern void setup(void);
 extern void loop(void);
 
-void main(void)
+int main(void)
 {
     setup();
     for(;;)

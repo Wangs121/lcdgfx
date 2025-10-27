@@ -22,9 +22,11 @@
     SOFTWARE.
 */
 
-#if ( defined(__linux__) || defined(__APPLE__) ) && !defined(ARDUINO)
+#if ( defined(__linux__) || defined(__APPLE__) || defined(__MINGW32__) ) && !defined(ARDUINO)
+
 
 #include "../io.h"
+#if ( defined(__linux__) || defined(__APPLE__) ) && !defined(ARDUINO)
 
 #include <sys/stat.h>
 #include <sys/types.h>
@@ -40,7 +42,7 @@
 #endif
 
 #include <map>
-
+#endif
 //////////////////////////////////////////////////////////////////////////////////
 //                        LINUX SPI IMPLEMENTATION
 //////////////////////////////////////////////////////////////////////////////////
@@ -95,4 +97,4 @@ void SdlSpi::sendBuffer(const uint8_t *buffer, uint16_t size)
 
 #endif /* SDL_EMULATION */
 
-#endif // __linux__
+#endif // __linux__/__APPLE__/__MINGW32__

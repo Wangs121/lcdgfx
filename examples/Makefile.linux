@@ -35,7 +35,11 @@ default: all
 
 platform?=linux
 
+ifeq ($(SDL_EMULATION),y)
+CCFLAGS += -g -Os -w
+else
 CCFLAGS += -g -Os -w -ffreestanding
+endif
 
 ifeq ($(ADAFRUIT),y)
 INCLUDES += -I../src/lcd_hal/linux/arduino

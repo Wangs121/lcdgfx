@@ -51,7 +51,7 @@ uint32_t lcd_micros(void)
 };
 
 #if defined(SDL_EMULATION)
-int lcd_gpioRead(int pin)
+int lcd_adcRead(int pin)
 {
     return sdl_read_analog(pin);
 };

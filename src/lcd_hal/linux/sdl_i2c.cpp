@@ -22,22 +22,9 @@
     SOFTWARE.
 */
 
-#if ( defined(__linux__) || defined(__APPLE__) ) && !defined(ARDUINO)
+#if ( defined(__linux__) || defined(__APPLE__) || defined(__MINGW32__) ) && !defined(ARDUINO)
 
 #include "../io.h"
-
-#include <sys/stat.h>
-#include <sys/types.h>
-#include <errno.h>
-#include <fcntl.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <sys/ioctl.h>
-#if defined(__linux__)
-#include <linux/i2c-dev.h>
-#include <linux/spi/spidev.h>
-#endif
 
 //////////////////////////////////////////////////////////////////////////////////
 //                        LINUX I2C IMPLEMENTATION
@@ -92,4 +79,4 @@ void SdlI2c::sendBuffer(const uint8_t *buffer, uint16_t size)
 
 #endif
 
-#endif // __linux__
+#endif // __linux__/__APPLE__/__MINGW32__
